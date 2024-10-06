@@ -30,7 +30,7 @@ update_utils_pkgbuilds() {
     zfs_utils_pkgname="zfs-utils"
     # Paths are relative to build.sh
     zfs_utils_pkgbuild_path="packages/${kernel_name}/${zfs_utils_pkgname}"
-    zfs_src_target="https://github.com/openzfs/zfs/releases/download/zfs-\${pkgver}/zfs-\${pkgver}.tar.gz"
+    zfs_src_target="https://github.com/n0xena/archzfs/releases/download/zfs-\${pkgver}/zfs-\${pkgver}.tar.gz"
     zfs_workdir="\${srcdir}/zfs-\${pkgver}"
     zfs_utils_replaces='replaces=("zfs-utils-linux" "zfs-utils-linux-lts" "zfs-utils-common")'
 }
