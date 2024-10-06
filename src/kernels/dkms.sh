@@ -32,7 +32,7 @@ update_dkms_pkgbuilds() {
     zfs_utils_pkgname="zfs-utils=\${pkgver}"
     # Paths are relative to build.sh
     zfs_dkms_pkgbuild_path="packages/${kernel_name}/${zfs_pkgname}"
-    zfs_src_target="https://github.com/openzfs/zfs/releases/download/zfs-\${pkgver}/zfs-\${pkgver}.tar.gz"
+    zfs_src_target="https://github.com/n0xena/archzfs/releases/download/zfs-\${pkgver}/zfs-\${pkgver}.tar.gz"
     zfs_workdir="\${srcdir}/zfs-\${pkgver}"
     zfs_replaces='replaces=("spl-dkms")'
 }
