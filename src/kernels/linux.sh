@@ -56,7 +56,7 @@ update_linux_pkgbuilds() {
     zfs_pkgrel=${pkgrel}
     zfs_conflicts="'zfs-linux-git' 'zfs-linux-rc' 'spl-linux'"
     zfs_pkgname="zfs-linux"
-    zfs_utils_pkgname="zfs-utils=\${_zfsver}-1"
+    zfs_utils_pkgname="zfs-utils=\${_zfsver}"
     # Paths are relative to build.sh
     zfs_pkgbuild_path="packages/${kernel_name}/${zfs_pkgname}"
     zfs_src_target="https://github.com/n0xena/archzfs/releases/download/zfs-\${_zfsver}/zfs-\${_zfsver}.tar.gz"
