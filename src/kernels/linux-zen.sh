@@ -56,7 +56,7 @@ update_linux_zen_pkgbuilds() {
     zfs_utils_pkgname="zfs-utils=\${_zfsver}"
     # Paths are relative to build.sh
     zfs_pkgbuild_path="packages/${kernel_name}/${zfs_pkgname}"
-    zfs_src_target="https://github.com/openzfs/zfs/releases/download/zfs-\${_zfsver}/zfs-\${_zfsver}.tar.gz"
+    zfs_src_target="https://github.com/n0xena/archzfs/releases/download/zfs-\${_zfsver}/zfs-\${_zfsver}.tar.gz"
     zfs_workdir="\${srcdir}/zfs-\${_zfsver}"
     zfs_replaces='replaces=("spl-linux-zen")'
 }
