@@ -71,6 +71,7 @@ update_linux_pkgbuilds() {
      pkg_list=("zfs-linux-rc")
      archzfs_package_group="archzfs-linux-rc"
      zfs_pkgver=${openzfs_rc_version/-/_}
+     zfs_rc_path=${openzfs_rc_version}
      zfs_pkgrel=${pkgrel_rc}
      zfs_conflicts="'zfs-linux' 'zfs-linux-git' 'spl-linux'"
      zfs_pkgname="zfs-linux-rc"
