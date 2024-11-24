@@ -63,40 +63,40 @@ update_linux_lts_pkgbuilds() {
     zfs_replaces='replaces=("spl-linux-lts")'
 }
 
-# update_linux_lts_rc_pkgbuilds() {
-#     get_kernel_options
-#     pkg_list=("zfs-linux-lts-rc")
-#     archzfs_package_group="archzfs-linux-lts-rc"
-#     zfs_pkgver=${openzfs_rc_version/-/_}
-#     zfs_pkgrel=${pkgrel_rc}
-#     zfs_conflicts="'zfs-linux-lts' 'zfs-linux-lts-git' 'spl-linux-lts'"
-#     zfs_pkgname="zfs-linux-lts-rc"
-#     zfs_utils_pkgname="zfs-utils-rc=\${_zfsver}"
-#     zfs_src_hash=${zfs_rc_src_hash}
-#     # Paths are relative to build.sh
-#     zfs_pkgbuild_path="packages/${kernel_name}/${zfs_pkgname}"
-#     zfs_src_target="https://github.com/openzfs/zfs/releases/download/zfs-\${_zfsver/_/-}/zfs-\${_zfsver/_/-}.tar.gz"
-#     zfs_workdir="\${srcdir}/zfs-\${_zfsver/_rc*/}"
-# }
-
-update_linux_lts_git_pkgbuilds() {
+update_linux_lts_rc_pkgbuilds() {
     get_kernel_options
-    pkg_list=("zfs-linux-lts-git")
-    archzfs_package_group="archzfs-linux-lts-git"
-    zfs_pkgver="" # Set later by call to git_calc_pkgver
-    zfs_pkgrel=${pkgrel_git}
-    zfs_conflicts="'zfs-linux-lts' 'spl-linux-lts-git' 'spl-linux-lts'"
-    zfs_pkgname="zfs-linux-lts-git"
+    pkg_list=("zfs-linux-lts-rc")
+    archzfs_package_group="archzfs-linux-lts-rc"
+    zfs_pkgver=${openzfs_rc_version/-/_}
+    zfs_pkgrel=${pkgrel_rc}
+    zfs_conflicts="'zfs-linux-lts' 'zfs-linux-lts-git' 'spl-linux-lts'"
+    zfs_pkgname="zfs-linux-lts-rc"
+    zfs_utils_pkgname="zfs-utils-rc=\${_zfsver}"
+    zfs_src_hash=${zfs_rc_src_hash}
+    # Paths are relative to build.sh
     zfs_pkgbuild_path="packages/${kernel_name}/${zfs_pkgname}"
-    zfs_replaces='replaces=("spl-linux-lts-git")'
-    zfs_src_hash="SKIP"
-    zfs_makedepends="\"git\""
-    zfs_workdir="\${srcdir}/zfs"
-    if have_command "update"; then
-        git_check_repo
-        git_calc_pkgver
-    fi
-    zfs_utils_pkgname="zfs-utils-git=\${_zfsver}"
-    zfs_set_commit="_commit='${latest_zfs_git_commit}'"
-    zfs_src_target="git+${zfs_git_url}#commit=\${_commit}"
+    zfs_src_target="https://github.com/openzfs/zfs/releases/download/zfs-\${_zfsver/_/-}/zfs-\${_zfsver/_/-}.tar.gz"
+    zfs_workdir="\${srcdir}/zfs-\${_zfsver/_rc*/}"
 }
+
+#update_linux_lts_git_pkgbuilds() {
+#    get_kernel_options
+#    pkg_list=("zfs-linux-lts-git")
+#    archzfs_package_group="archzfs-linux-lts-git"
+#    zfs_pkgver="" # Set later by call to git_calc_pkgver
+#    zfs_pkgrel=${pkgrel_git}
+#    zfs_conflicts="'zfs-linux-lts' 'spl-linux-lts-git' 'spl-linux-lts'"
+#    zfs_pkgname="zfs-linux-lts-git"
+#    zfs_pkgbuild_path="packages/${kernel_name}/${zfs_pkgname}"
+#    zfs_replaces='replaces=("spl-linux-lts-git")'
+#    zfs_src_hash="SKIP"
+#    zfs_makedepends="\"git\""
+#    zfs_workdir="\${srcdir}/zfs"
+#    if have_command "update"; then
+#        git_check_repo
+#        git_calc_pkgver
+#    fi
+#    zfs_utils_pkgname="zfs-utils-git=\${_zfsver}"
+#    zfs_set_commit="_commit='${latest_zfs_git_commit}'"
+#    zfs_src_target="git+${zfs_git_url}#commit=\${_commit}"
+#}
