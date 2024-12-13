@@ -5,6 +5,7 @@ mode_desc="Select and use the packages for the linux-hardened kernel"
 
 # pkgrel for hardened packages
 pkgrel="1"
+pkgrel_rc="1"
 
 # pkgrel for GIT packages
 pkgrel_git="1"
@@ -61,24 +62,42 @@ update_linux_hardened_pkgbuilds() {
     zfs_replaces='replaces=("spl-linux-hardened")'
 }
 
-update_linux_hardened_git_pkgbuilds() {
+update_linux_hardened_rc_pkgbuilds() {
     get_kernel_options
-    pkg_list=("zfs-linux-hardened-git")
-    archzfs_package_group="archzfs-linux-hardened-git"
-    zfs_pkgver="" # Set later by call to git_calc_pkgver
-    zfs_pkgrel=${pkgrel_git}
-    zfs_conflicts="'zfs-linux-hardened' 'spl-linux-hardened-git' 'spl-linux-hardened'"
-    zfs_pkgname="zfs-linux-hardened-git"
+    pkg_list=("zfs-linux-hardened-rc")
+    archzfs_package_group="archzfs-linux-hardened-rc"
+    zfs_pkgver=${openzfs_rc_version/-/_}
+    zfs_rc_path=${openzfs_rc_version}
+    zfs_pkgrel=${pkgrel_rc}
+    zfs_conflicts="'zfs-linux-hardened-git' 'spl-linux-hardened'"
+    zfs_pkgname="zfs-linux-hardened-rc"
+    zfs_utils_pkgname="zfs-utils-rc=\${_zfsver}"
+    zfs_src_hash=${zfs_rc_src_hash}
+    # Paths are relative to build.sh
     zfs_pkgbuild_path="packages/${kernel_name}/${zfs_pkgname}"
-    zfs_replaces='replaces=("spl-linux-hardened-git")'
-    zfs_src_hash="SKIP"
-    zfs_makedepends="\"git\""
-    zfs_workdir="\${srcdir}/zfs"
-    if have_command "update"; then
-        git_check_repo
-        git_calc_pkgver
-    fi
-    zfs_utils_pkgname="zfs-utils-git=\${_zfsver}"
-    zfs_set_commit="_commit='${latest_zfs_git_commit}'"
-    zfs_src_target="git+${zfs_git_url}#commit=\${_commit}"
+    zfs_src_target="https://github.com/openzfs/zfs/releases/download/zfs-\${_zfsver/_/-}/zfs-\${_zfsver/_/-}.tar.gz"
+    zfs_workdir="\${srcdir}/zfs-\${rc_path}"
+    zfs_replaces='replaces=("spl-linux-hardened")'
 }
+
+#update_linux_hardened_git_pkgbuilds() {
+#    get_kernel_options
+#    pkg_list=("zfs-linux-hardened-git")
+#    archzfs_package_group="archzfs-linux-hardened-git"
+#    zfs_pkgver="" # Set later by call to git_calc_pkgver
+#    zfs_pkgrel=${pkgrel_git}
+#    zfs_conflicts="'zfs-linux-hardened' 'spl-linux-hardened-git' 'spl-linux-hardened'"
+#    zfs_pkgname="zfs-linux-hardened-git"
+#    zfs_pkgbuild_path="packages/${kernel_name}/${zfs_pkgname}"
+#    zfs_replaces='replaces=("spl-linux-hardened-git")'
+#    zfs_src_hash="SKIP"
+#    zfs_makedepends="\"git\""
+#    zfs_workdir="\${srcdir}/zfs"
+#    if have_command "update"; then
+#        git_check_repo
+#        git_calc_pkgver
+#    fi
+#    zfs_utils_pkgname="zfs-utils-git=\${_zfsver}"
+#    zfs_set_commit="_commit='${latest_zfs_git_commit}'"
+#    zfs_src_target="git+${zfs_git_url}#commit=\${_commit}"
+#}
