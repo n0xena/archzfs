@@ -1,6 +1,0 @@
-[Unit]
-Description=Delayed poweroff
-
-[Timer]
-OnActiveSec=1
-Unit=poweroff.target
