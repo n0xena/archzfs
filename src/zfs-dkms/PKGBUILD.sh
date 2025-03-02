@@ -28,6 +28,8 @@ build() {
 package() {
     dkmsdir="\${pkgdir}/usr/src/zfs-${zfs_mod_ver}"
     install -d "\${dkmsdir}"
+    cd ${zfs_workdir}
+    patch -Np1 -i ../package.patch
     cp -a ${zfs_workdir}/. \${dkmsdir}
 
     cd "\${dkmsdir}"
