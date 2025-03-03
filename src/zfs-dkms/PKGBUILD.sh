@@ -12,9 +12,9 @@ makedepends=(${zfs_makedepends})
 arch=("x86_64")
 url="https://openzfs.org/"
 source=("${zfs_src_target}"
-    "package.patch")
+    "dkms-configure.patch")
 sha256sums=("${zfs_src_hash}"
-    SKIP)
+    "a9b258308d0cdc8cf1ab1b06a4ebbb99e3587d8f2cc98b15ca3b05d5de52dcc6")
 license=("CDDL")
 depends=("${zfs_utils_pkgname}" "lsb-release" "dkms")
 provides=("zfs" "zfs-headers" "spl" "spl-headers")
@@ -31,7 +31,7 @@ package() {
     dkmsdir="\${pkgdir}/usr/src/zfs-${zfs_mod_ver}"
     install -d "\${dkmsdir}"
     cd ${zfs_workdir}
-    patch -Np1 -i ../package.patch
+    patch -Np1 -i ../dkms-configure.patch
     cp -a ${zfs_workdir}/. \${dkmsdir}
 
     cd "\${dkmsdir}"
