@@ -1,0 +1,21 @@
+diff -ura a/scripts/dkms.mkconf b/scripts/dkms.mkconf
+--- a/scripts/dkms.mkconf	2025-03-03 20:43:33.659100302 +0100
++++ b/scripts/dkms.mkconf	2025-03-03 20:45:09.270606542 +0100
+@@ -26,9 +26,17 @@
+ PACKAGE_CONFIG="${pkgcfg}"
+ NO_WEAK_MODULES="yes"
+ PRE_BUILD="configure
++  --enable-linux-experimental
+   --disable-dependency-tracking
+   --prefix=/usr
+   --with-config=kernel
++  --sysconfdir=/etc
++  --sbindir=/usr/bin
++  --libdir=/usr/lib
++  --datadir=/usr/share
++  --includedir=/usr/include
++  --with-udevdir=/usr/lib/udev
++  --libexecdir=/usr/lib
+   --with-linux=\$(
+     if [ -e "\${kernel_source_dir/%build/source}" ]
+     then
