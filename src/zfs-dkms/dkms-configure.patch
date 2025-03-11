@@ -1,7 +1,7 @@
 diff -ura a/scripts/dkms.mkconf b/scripts/dkms.mkconf
---- a/scripts/dkms.mkconf	2025-03-03 20:43:33.659100302 +0100
-+++ b/scripts/dkms.mkconf	2025-03-03 20:45:09.270606542 +0100
-@@ -26,9 +26,17 @@
+--- a/scripts/dkms.mkconf       2025-03-11 20:57:12.078718755 +0100
++++ b/scripts/dkms.mkconf       2025-03-11 20:59:19.611532953 +0100
+@@ -26,6 +26,7 @@
  PACKAGE_CONFIG="${pkgcfg}"
  NO_WEAK_MODULES="yes"
  PRE_BUILD="configure
@@ -9,13 +9,3 @@ diff -ura a/scripts/dkms.mkconf b/scripts/dkms.mkconf
    --disable-dependency-tracking
    --prefix=/usr
    --with-config=kernel
-+  --sysconfdir=/etc
-+  --sbindir=/usr/bin
-+  --libdir=/usr/lib
-+  --datadir=/usr/share
-+  --includedir=/usr/include
-+  --with-udevdir=/usr/lib/udev
-+  --libexecdir=/usr/lib
-   --with-linux=\$(
-     if [ -e "\${kernel_source_dir/%build/source}" ]
-     then
