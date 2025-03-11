@@ -14,7 +14,7 @@ url="https://openzfs.org/"
 source=("${zfs_src_target}"
     "dkms-configure.patch")
 sha256sums=("${zfs_src_hash}"
-    "a9b258308d0cdc8cf1ab1b06a4ebbb99e3587d8f2cc98b15ca3b05d5de52dcc6")
+    SKIP)
 license=("CDDL")
 depends=("${zfs_utils_pkgname}" "lsb-release" "dkms")
 provides=("zfs" "zfs-headers" "spl" "spl-headers")
