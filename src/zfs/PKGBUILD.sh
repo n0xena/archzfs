@@ -34,8 +34,7 @@ build() {
                 --datadir=/usr/share --includedir=/usr/include --with-udevdir=/usr/lib/udev \\
                 --libexecdir=/usr/lib --with-config=kernel \\
                 --with-linux=/usr/lib/modules/\${_extramodules}/build \\
-                --with-linux-obj=/usr/lib/modules/\${_extramodules}/build \\
-                --enable-linux-experimental
+                --with-linux-obj=/usr/lib/modules/\${_extramodules}/build
     make
 }
 

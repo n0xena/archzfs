@@ -5,7 +5,7 @@ diff -ura a/scripts/dkms.mkconf b/scripts/dkms.mkconf
  PACKAGE_CONFIG="${pkgcfg}"
  NO_WEAK_MODULES="yes"
  PRE_BUILD="configure
-+  --enable-linux-experimental
++
    --disable-dependency-tracking
    --prefix=/usr
    --with-config=kernel
