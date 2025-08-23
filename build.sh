@@ -33,6 +33,7 @@ usage() {
     echo "    -n:    Dryrun; Output commands, but don't do anything."
     echo "    -d:    Show debug info."
     echo "    -s:    Skip git packages and only build stable packages"
+    echo "    -S:    Skip stable packages"
     echo "    -R:    Perform git reset in packages directory for Mode."
     echo "    -u:    Perform an update in the clean chroot."
     echo "    -U:    Update the file sums in conf.sh."
@@ -233,6 +234,8 @@ for (( a = 0; a < $#; a++ )); do
         debug_flag=1
     elif [[ ${args[$a]} == "-s" ]]; then
         only_stable=1
+    elif [[ ${args[$a]} == "-S" ]]; then
+        no_stable=1
     elif [[ ${args[$a]} == "-h" ]]; then
         usage
     else
@@ -318,10 +321,16 @@ for (( i = 0; i < ${#modes[@]}; i++ )); do
         debug "Evaluating '${func}'"
 
         # skip git packages if -s was used
-        if [[ ${only_stable} -eq 1 && ( ${func} =~ git_pkgbuilds$ || ${func} =~ rc_pkgbuilds$ ) ]]; then
+        if [[ ${only_stable} -eq 1 && ${func} =~ (git|rc)_pkgbuilds$ ]]; then
             debug "Skipping '${func}' (non stable)"
             continue
         fi
+        # skip stable packages if -S was used
+        if [[ ${no_stable} -eq 1 && ! ${func} =~ (git|rc)_pkgbuilds$ ]]; then
+            debug "Skipping '${func}' (stable)"
+            continue
+        fi
+
         reset_variables
         "${func}"
         if have_command "update"; then
