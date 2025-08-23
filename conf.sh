@@ -3,7 +3,7 @@
 # FIXME: reset all kernel configs set to pkgrel=1 when this changes
 #
 openzfs_version="2.3.3"
-openzfs_rc_version="2.3.4-rc1"
+openzfs_rc_version="2.4.0-rc1"
 
 # The OpenZFS source hashes are from github.com/openzfs/zfs/releases
 zfs_src_hash="844122118f0ea81205a01753bbcb1315330f8967c1f866dcd10155273131f071"
