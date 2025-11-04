@@ -4,7 +4,6 @@ cat << EOF > ${zfs_dkms_pkgbuild_path}/PKGBUILD
 ${header}
 pkgname="${zfs_pkgname}"
 ${zfs_set_commit}
-rc_path=${zfs_rc_path}
 pkgdesc="Kernel modules for the Zettabyte File System."
 pkgver=${zfs_pkgver}
 pkgrel=${zfs_pkgrel}
