@@ -7,7 +7,6 @@ pkgname=("${zfs_pkgname}" "${zfs_pkgname}-headers")
 
 ${zfs_set_commit}
 _zfsver="${zfs_pkgver}"
-rc_path=${zfs_rc_path}
 _kernelver="${kernel_version}"
 _kernelver_full="${kernel_version_full}"
 _extramodules="${kernel_mod_path}"
