@@ -49,7 +49,7 @@ update_dkms_rc_pkgbuilds() {
     # Paths are relative to build.sh
     zfs_dkms_pkgbuild_path="packages/${kernel_name}/${zfs_pkgname}"
     zfs_src_target="https://github.com/openzfs/zfs/releases/download/zfs-\${pkgver/_/-}/zfs-\${pkgver/_/-}.tar.gz"
-    zfs_workdir="\${srcdir}/zfs-\${openzfs_rc_version}"
+    zfs_workdir="\${srcdir}/zfs-${openzfs_rc_version}"
 }
 
 #update_dkms_git_pkgbuilds() {
