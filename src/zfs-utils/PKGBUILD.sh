@@ -5,7 +5,6 @@ ${header}
 pkgname="${zfs_utils_pkgname}"
 ${zfs_set_commit}
 pkgver=${zfs_pkgver}
-rc_path=${zfs_rc_path}
 pkgrel=${zfs_pkgrel}
 pkgdesc="Kernel module support files for the Zettabyte File System."
 makedepends=("python" "python-setuptools" "python-cffi" ${zfs_makedepends})
