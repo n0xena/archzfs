@@ -45,7 +45,7 @@ update_utils_rc_pkgbuilds() {
     # Paths are relative to build.sh
     zfs_utils_pkgbuild_path="packages/${kernel_name}/${zfs_utils_pkgname}"
     zfs_src_target="https://github.com/openzfs/zfs/releases/download/zfs-\${pkgver/_/-}/zfs-\${pkgver/_/-}.tar.gz"
-    zfs_workdir="\${srcdir}/zfs-\${openzfs_rc_version}"
+    zfs_workdir="\${srcdir}/zfs-${openzfs_rc_version}"
 }
 
 #update_utils_git_pkgbuilds() {
