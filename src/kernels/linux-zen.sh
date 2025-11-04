@@ -67,7 +67,6 @@ update_linux_zen_rc_pkgbuilds() {
     pkg_list=("zfs-linux-zen-rc")
     archzfs_package_group="archzfs-linux-zen-rc"
     zfs_pkgver=${openzfs_rc_version/-/_}
-    zfs_rc_path=${openzfs_rc_version}
     zfs_pkgrel=${pkgrel_rc}
     zfs_conflicts="'zfs-linux-zen-git' 'spl-linux-zen'"
     zfs_pkgname="zfs-linux-zen-rc"
@@ -76,7 +75,7 @@ update_linux_zen_rc_pkgbuilds() {
     # Paths are relative to build.sh
     zfs_pkgbuild_path="packages/${kernel_name}/${zfs_pkgname}"
     zfs_src_target="https://github.com/openzfs/zfs/releases/download/zfs-\${_zfsver/_/-}/zfs-\${_zfsver/_/-}.tar.gz"
-    zfs_workdir="\${srcdir}/zfs-\${rc_path}"
+    zfs_workdir="\${srcdir}/zfs-\${openzfs_rc_version}"
     zfs_replaces='replaces=("spl-linux-zen")'
 }
 
