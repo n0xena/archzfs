@@ -130,6 +130,8 @@ package() {
 
 to get tests done make sure to install libaio in build system to get mmap_libaio build
 
-test system requires these arch packages: `bc cpio fio inetutils sysstat jq smbclient pax python rsync xxhash nfs-utils lsscsi xfsprogs parted perf which libaio` with `pamtester` from AUR
+test system requires these arch packages: `bc cpio fio inetutils sysstat jq smbclient pax python rsync xxhash nfs-utils lsscsi xfsprogs parted perf which libaio ksh python-cffi words` with `pamtester` from AUR
 
 should result in test start with nothing missing
+
+nfs-server has to be started before test run
